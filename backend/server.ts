@@ -44,7 +44,7 @@ app.listen(PORT, () => {
 
 // ✅ PUBLIC ROUTE (important)
 app.get("/", (_req, res) => {
-    res.send("QuickGPT Server running 🚀");
+    res.send("Blog Application Server running 🚀");
 });
 
 export default app; 
