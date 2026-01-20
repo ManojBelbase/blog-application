@@ -20,10 +20,12 @@ const allowedOrigins = [
 app.use(
     cors({
         origin: (origin, callback) => {
-            if (!origin || allowedOrigins.includes(origin)) {
+            // Strip trailing slashes from origin for comparison
+            const cleanOrigin = origin?.replace(/\/$/, "");
+            if (!origin || allowedOrigins.some(o => o.replace(/\/$/, "") === cleanOrigin)) {
                 callback(null, true);
             } else {
-                callback(new Error("Not allowed by CORS"));
+                callback(null, false);
             }
         },
         credentials: true,
@@ -34,8 +36,13 @@ app.use(express.json());
 
 // Routes
 app.use("/api/posts", postRoutes);
-app.use("/api/auth", authRoutes); // Auth routes
+app.use("/api/auth", authRoutes);
 
+// Global Error Handler
+app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+    console.error("error detected:", err.stack);
+    res.status(500).json({ message: err.message || "Internal Server Error" });
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
