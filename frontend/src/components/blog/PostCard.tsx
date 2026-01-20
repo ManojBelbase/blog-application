@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { PATH } from "../../const/Path";
-import type { Post } from "../../store/postStore";
 import { dateFormater } from "../../utils/dateFormater";
+import type { Post } from "../../types";
 
 interface PostCardProps {
     post: Post;
