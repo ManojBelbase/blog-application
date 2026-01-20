@@ -13,7 +13,7 @@ connectDB();
 
 // CORS
 const allowedOrigins = [
-    process.env.FRONTEND_URL || "https://quickgptai.vercel.app",
+    process.env.FRONTEND_URL || "https://blog-application-pfdz.vercel.app/",
     process.env.DEV_FRONTEND_URL || "http://localhost:5173",
 ];
 
