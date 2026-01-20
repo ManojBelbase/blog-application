@@ -39,31 +39,58 @@
 ## 📁 Folder Structure
 ```text
 src/
+├── assets/                       # Static assets (images, icons)
 ├── axios/
 │   └── axiosInstance.ts          # API configuration & Interceptors
 ├── components/
 │   ├── blog/
-│   │   ├── BlogCard.tsx          # Blog item display
 │   │   ├── BlogDetails.tsx       # Detailed post view
-│   │   └── PostForm.tsx          # Create/Edit form
-│   └── UI/
-│       ├── Button.tsx            # Generic button component
-│       └── Modal.tsx             # Reusable modal dialog
+│   │   ├── PostCard.tsx          # Blog item display card
+│   │   ├── PostForm.tsx          # Create/Edit form
+│   │   └── PostSchema.ts         # Validation schema for posts
+│   ├── Shared/
+│   │   ├── Navbar.tsx            # Navigation bar component
+│   │   └── Sidebar.tsx           # Sidebar navigation
+│   ├── UI/
+│   │   ├── Button.tsx            # Generic button component
+│   │   ├── ConfirmModal.tsx      # Confirmation dialog
+│   │   ├── Dropdown.tsx          # Dropdown menu component
+│   │   ├── Editor.tsx            # Rich text editor wrapper (React Quill)
+│   │   ├── Input.tsx             # Input field component
+│   │   └── Shimmer.tsx           # Loading shimmer effect
+│   ├── DataTable.tsx             # Table component for listings
+│   ├── Modal.tsx                 # Reusable modal dialog
+│   ├── PageHeader.tsx            # Page header component
+│   ├── StatusBadge.tsx           # Status indicator badge
+│   └── TableAction.tsx           # Table action buttons
+├── const/
+│   ├── Path.ts                   # Route path constants
+│   └── SidebarItem.ts            # Sidebar menu items configuration
 ├── context/
 │   └── ThemeContext.tsx          # Theme management (Context API)
 ├── hooks/
 │   ├── useAuth.ts                # Authentication logic
-│   └── usePosts.ts               # Blog data handling
+│   ├── usePosts.ts               # Blog data handling
+│   └── useTheme.ts               # Theme hook
+├── layout/
+│   └── Layout.tsx                # Main layout wrapper
 ├── pages/
-│   ├── BlogDetailsPage.tsx       # Full screen post view
-│   ├── BlogsPageIndex.tsx        # Dashboard / Main listing
+│   ├── BlogsPageIndex.tsx        # Main blog listing page
+│   ├── Dashboard.tsx             # Dashboard page
+│   ├── Home.tsx                  # Homepage
 │   ├── Login.tsx                 # Authentication screen
+│   ├── NotFound.tsx              # 404 page
 │   └── Register.tsx              # Account creation screen
+├── routes/
+│   ├── ProtectedRoute.tsx        # Route guard for authentication
+│   └── RoutesConfig.tsx          # Application routes configuration
 ├── store/
 │   ├── authStore.ts              # Zustand Auth state
 │   └── postStore.ts              # Zustand Posts state
-└── types/
-    └── index.d.ts                # Global TypeScript interfaces
+├── types/
+│   └── index.d.ts                # Global TypeScript interfaces
+└── utils/
+    └── dateFormater.ts           # Date formatting utility
 ```
 
 ## 🚀 Quick Start
