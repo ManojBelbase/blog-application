@@ -67,6 +67,43 @@ src/
 ```
 
 ## 🚀 Quick Start
-1. `npm install` in both folders.
-2. Setup `.env` for API and Database.
-3. Run `npm run dev`.
+
+### Prerequisites
+- Node.js 18+ installed
+- pnpm installed (or use `npm install -g pnpm`)
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/ManojBelbase/Blog-Application.git
+cd Blog-Application/frontend
+```
+
+### 2. Install Dependencies
+```bash
+pnpm install
+```
+
+### 3. Setup Environment Variables
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and add the backend API URL:
+```env
+VITE_API_BASE_URL=https://blog-application-pink-gamma.vercel.app/api
+```
+
+### 4. Start Development Server
+```bash
+pnpm run dev
+```
+
+### 5. Access the Application
+Open your browser and navigate to: **http://localhost:5173**
+
+> **Note**: The backend API is already deployed and running on Vercel. You only need to set up the frontend to get started.
+
+### Build for Production
+```bash
+pnpm run build
+```
