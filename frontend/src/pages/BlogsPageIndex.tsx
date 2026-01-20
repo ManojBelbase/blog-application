@@ -137,6 +137,7 @@ export const BlogsPageIndex = () => {
                         setConfirmDeleteId(null);
                     }
                 }}
+
                 loading={isLoading}
             />
         </div>

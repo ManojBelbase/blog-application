@@ -20,7 +20,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
     loading = false
 }) => {
     return (
-        <Modal opened={opened} onClose={onClose} title={title} size="lg" >
+        <Modal opened={opened} onClose={onClose} title={title} size="3xl" >
             <div className="space-y-6 max">
                 <p className="text-sm text-(--text-secondary)">
                     {message}
