@@ -58,30 +58,43 @@ export const Navbar: React.FC = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Drawer Overlay */}
             {menuOpen && (
-                <div className="absolute top-16 left-0 right-0 bg-(--bg-primary) border-b border-(--border-color) p-6 md:hidden flex flex-col gap-6 shadow-xl animate-in slide-in-from-top duration-200">
-                    <Link to={PATH.HOME} onClick={() => setMenuOpen(false)} className="text-sm font-bold uppercase">Home</Link>
-                    {isAuthenticated ? (
-                        <>
-                            <Link to={PATH.DASHBOARD} onClick={() => setMenuOpen(false)} className="text-sm font-bold uppercase">Dashboard</Link>
-                            <div className="border-t border-(--border-color) pt-6 flex flex-col gap-4">
-                                <span className="text-xs font-normal text-gray-400">Logged in as @{user?.username}</span>
-                                <button onClick={handleLogout} className="text-left cursor-pointer text-sm font-bold uppercase text-red-500">
-                                    <Icon icon="lucide:log-out" className="w-4 h-4 mr-2" />
-                                    Logout
-                                </button>
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <Link to={PATH.LOGIN} onClick={() => setMenuOpen(false)} className="text-sm cursor-pointer font-bold uppercase">
-                                <Icon icon="lucide:log-in" className="w-4 h-4 mr-2" />
-                                Login
-                            </Link>
-                        </>
-                    )}
-                </div>
+                <>
+                    {/* Backdrop */}
+                    <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setMenuOpen(false)} />
+
+                    {/* Drawer */}
+                    <div className="fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-(--bg-primary) border-l border-(--border-color) p-6 z-50 md:hidden flex flex-col gap-6 shadow-2xl animate-in slide-in-from-right duration-200">
+                        <div className="flex justify-between items-center mb-4">
+                            <span className="text-lg font-bold tracking-tight">MENU</span>
+                            <button onClick={() => setMenuOpen(false)} className="p-2 -mr-2 text-(--text-primary)">
+                                <Icon icon="lucide:x" className="w-6 h-6" />
+                            </button>
+                        </div>
+
+                        <Link to={PATH.HOME} onClick={() => setMenuOpen(false)} className="text-sm font-bold uppercase hover:text-(--accent) transition-colors">Home</Link>
+                        {isAuthenticated ? (
+                            <>
+                                <Link to={PATH.DASHBOARD} onClick={() => setMenuOpen(false)} className="text-sm font-bold uppercase hover:text-(--accent) transition-colors">Dashboard</Link>
+                                <div className="border-t border-(--border-color) pt-6 flex flex-col gap-4">
+                                    <span className="text-xs font-normal text-gray-400">Logged in as @{user?.username}</span>
+                                    <button onClick={handleLogout} className="text-left cursor-pointer text-sm flex font-bold uppercase text-red-500 hover:text-red-400">
+                                        <Icon icon="lucide:log-out" className="w-4 h-4 mr-2" />
+                                        Logout
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <Link to={PATH.LOGIN} onClick={() => setMenuOpen(false)} className="text-sm cursor-pointer font-bold uppercase hover:text-(--accent) transition-colors">
+                                    <Icon icon="lucide:log-in" className="w-4 h-4 mr-2" />
+                                    Login
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                </>
             )}
         </nav>
     );

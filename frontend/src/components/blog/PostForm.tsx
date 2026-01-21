@@ -25,7 +25,7 @@ export const PostForm = ({ post, onSubmit, onCancel, loading }: PostFormProps) =
         e.preventDefault();
         try {
             await postSchema.validate(formData, { abortEarly: false });
-            onSubmit(formData.title, formData.content, formData.category);
+            onSubmit(formData.title, formData.content.replace(/&nbsp;/g, ' '), formData.category);
         } catch (err: any) {
             if (err.inner) {
                 const validationErrors: Partial<Record<keyof typeof formData, string>> = {};

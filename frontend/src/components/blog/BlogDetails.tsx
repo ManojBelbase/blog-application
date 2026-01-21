@@ -44,7 +44,7 @@ export const BlogDetails: React.FC = () => {
     }
 
     return (
-        <article className="max-w-6xl mx-auto py-6 sm:py-10 sm:px-6 px-3">
+        <article className="max-w-3xl mx-auto py-6 sm:py-10 sm:px-6 px-3">
             <Link to={PATH.HOME} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-(--text-secondary) hover:text-(--accent) mb-4 sm:mb-8 transition-colors">
                 <Icon icon="lucide:arrow-left" />
                 Back
